@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#10251e">
+    <meta name="description" content="A private, local dashboard for your Codex usage window.">
+    <title>Codex Usage</title>
+    <link rel="stylesheet" href="/styles.css">
+    <script src="/app.js" defer></script>
+  </head>
+  <body>
+    <main class="dashboard">
+      <header class="topline">
+        <span class="brand-mark" aria-hidden="true">✳</span>
+        <span>CODEX · PERSONAL</span>
+        <span class="live-state" id="live-state"><i></i> Connecting</span>
+      </header>
+
+      <section class="hero" aria-labelledby="title">
+        <p class="eyebrow">Your usage, at a glance</p>
+        <h1 id="title">Codex is ready.</h1>
+        <p class="subtitle">A live view of the current usage allowance.</p>
+
+        <div class="usage-visual" id="primary-card" aria-live="polite">
+          <div class="ring" id="primary-ring" role="img" aria-label="Codex usage percentage unavailable">
+            <div class="ring-center">
+              <strong id="primary-percent">—</strong>
+              <span>used</span>
+            </div>
+          </div>
+          <div class="usage-copy">
+            <span class="section-label">CURRENT WINDOW</span>
+            <strong id="primary-window">Waiting for usage data</strong>
+            <span id="primary-reset" class="reset-copy">—</span>
+          </div>
+        </div>
+
+        <div class="secondary" id="secondary-card" hidden>
+          <div class="secondary-top"><span id="secondary-window">Additional window</span><strong id="secondary-percent">—</strong></div>
+          <div class="bar"><span id="secondary-bar"></span></div>
+          <p id="secondary-reset" class="reset-copy">—</p>
+        </div>
+
+        <div class="explanation">
+          <span class="explanation-icon" aria-hidden="true">↗</span>
+          <p><strong>This is a quota meter, not a token counter.</strong><br>It shows the usage percentage Codex reports for this window. It can’t be converted into tokens per prompt.</p>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <span id="updated">Waiting for first refresh…</span>
+        <div class="footer-actions">
+          <button id="refresh" type="button">Refresh now</button>
+          <span class="local-note"><span aria-hidden="true">●</span> Local on this Mac</span>
+        </div>
+      </footer>
+      <p class="error" id="error" role="status" hidden></p>
+    </main>
+  </body>
+</html>
